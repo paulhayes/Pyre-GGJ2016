@@ -21,6 +21,10 @@ public class Balance : MonoBehaviour {
     public Toggle[] togglesUI;
 
 	void Start () {
+
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
         currentData = allData[ PlayerPrefs.GetInt("BalanceProgress",0) % allData.Length ]; 
         for(int i=0;i<currentData.weights.Length;i++){
             togglesUI[i].GetComponentInChildren<Text>().text = currentData.weights[i].ToString();
@@ -34,7 +38,7 @@ public class Balance : MonoBehaviour {
     }
 	
 	void Update () {
-        currentRotation = target.transform.rotation.eulerAngles.z;
+        currentRotation = target.transform.localRotation.eulerAngles.x;
         if( currentRotation > 180 ) currentRotation-=360;
         rotationSpeed += springiness * ( goalBalance - currentRotation );
         rotationSpeed *= dampening;
@@ -48,7 +52,7 @@ public class Balance : MonoBehaviour {
             rotationSpeed = -rotationSpeed;
         }
 
-        target.transform.rotation = Quaternion.Euler(0,0,currentRotation);
+        target.transform.localRotation = Quaternion.Euler(currentRotation,0,0);
 
 
 
