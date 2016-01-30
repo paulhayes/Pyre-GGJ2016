@@ -50,6 +50,8 @@ public class Balance : MonoBehaviour {
 
         target.transform.rotation = Quaternion.Euler(0,0,currentRotation);
 
+
+
 	}
 
     public void CalculateBalance(){
