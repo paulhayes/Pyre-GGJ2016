@@ -1,0 +1,141 @@
+fileFormatVersion: 2
+guid: 4ea7a3775eb1a6b46b560f42ef12f352
+timeCreated: 1454154744
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Brazier
+    100002: Circle
+    100004: Circle.001
+    100006: Empty
+    100008: //RootNode
+    100010: Flames 1
+    100012: Flames 2
+    100014: Flames 3
+    100016: Flames 4
+    100018: Flames 5
+    400000: Brazier
+    400002: Circle
+    400004: Circle.001
+    400006: Empty
+    400008: //RootNode
+    400010: Flames 1
+    400012: Flames 2
+    400014: Flames 3
+    400016: Flames 4
+    400018: Flames 5
+    2300000: Brazier
+    2300002: Circle
+    2300004: Circle.001
+    2300006: Flames 1
+    2300008: Flames 2
+    2300010: Flames 3
+    2300012: Flames 4
+    2300014: Flames 5
+    3300000: Brazier
+    3300002: Circle
+    3300004: Circle.001
+    3300006: Flames 1
+    3300008: Flames 2
+    3300010: Flames 3
+    3300012: Flames 4
+    3300014: Flames 5
+    4300000: Flames 5
+    4300002: Flames 4
+    4300004: Flames 3
+    4300006: Flames 2
+    4300008: Brazier
+    4300010: Flames 1
+    4300012: Circle.001
+    4300014: Circle
+    7400000: Flames 5|Flames 1Action
+    7400002: Flames 5|Flames 1Action.001
+    7400004: Flames 5|Flames 2Action
+    7400006: Flames 5|Flames 2Action.001
+    7400008: Flames 5|Flames 2Action.002
+    7400010: Flames 4|Flames 1Action
+    7400012: Flames 4|Flames 1Action.001
+    7400014: Flames 4|Flames 2Action
+    7400016: Flames 4|Flames 2Action.001
+    7400018: Flames 4|Flames 2Action.002
+    7400020: Flames 3|Flames 1Action
+    7400022: Flames 3|Flames 1Action.001
+    7400024: Flames 3|Flames 2Action
+    7400026: Flames 3|Flames 2Action.001
+    7400028: Flames 3|Flames 2Action.002
+    7400030: Flames 2|Flames 1Action
+    7400032: Flames 2|Flames 1Action.001
+    7400034: Flames 2|Flames 2Action
+    7400036: Flames 2|Flames 2Action.001
+    7400038: Flames 2|Flames 2Action.002
+    7400040: Flames 1|Flames 1Action
+    7400042: Flames 1|Flames 1Action.001
+    7400044: Flames 1|Flames 2Action
+    7400046: Flames 1|Flames 2Action.001
+    7400048: Flames 1|Flames 2Action.002
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
