@@ -35,7 +35,8 @@ public class Balance : MonoBehaviour {
         for(int i=0;i<currentData.weights.Length;i++){
             togglesUI[i].GetComponentInChildren<Text>().text = currentData.weights[i].ToString();
 
-            GameObject obj = Instantiate(currentData.objects[i], sources[i].transform.position, sources[i].transform.rotation) as GameObject;
+            GameObject obj = Instantiate(currentData.objects[i]) as GameObject;
+            obj.transform.position = sources[i].transform.position;
             obj.transform.parent = sources[i].transform;
             obj.name =  currentData.weights[i].ToString();
         }
@@ -127,7 +128,7 @@ public class Balance : MonoBehaviour {
             emptyDestination[0].GetComponent<Collider>().enabled = true;
             obj.transform.parent = emptyDestination[0];
             obj.transform.localPosition = Vector3.zero;
-            obj.transform.localRotation = Quaternion.identity;
+            //obj.transform.localRotation = Quaternion.identity;
         }
         CalculateBalance();
     }
@@ -138,7 +139,7 @@ public class Balance : MonoBehaviour {
             obj.transform.parent.GetComponent<Collider>().enabled = false;
             obj.transform.parent = emptySources[0];
             obj.transform.localPosition = Vector3.zero;
-            obj.transform.localRotation = Quaternion.identity;
+            //obj.transform.localRotation = Quaternion.identity;
         }
         CalculateBalance();
     }
