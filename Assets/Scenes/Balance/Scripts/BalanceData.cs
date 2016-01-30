@@ -5,4 +5,5 @@ using System.Collections;
 public class BalanceData : ScriptableObject {
     public float[] weights;
     public float goalWeight;
+    public GameObject[] objects;
 }

@@ -11,12 +11,14 @@ public class RememberPositonAndDirection : MonoBehaviour {
     public Transform targetPosition;
     public Transform targetRotation1;
     public Transform targetRotation2;
+    public CharacterController controller;
 
     void Awake(){
         instance = this;
     }
 
 	void Start () {
+        
         if( stored ){
             targetRotation1.rotation = rotation1;
             targetRotation2.rotation = rotation2;

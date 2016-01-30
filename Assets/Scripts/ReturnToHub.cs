@@ -18,7 +18,13 @@ public class ReturnToHub : MonoBehaviour {
         }
 	}
 
+    void RitualComplete(){
+        GameObject.FindObjectOfType<RitualControl>().RitualComplete(SceneManager.GetActiveScene().name);
+        Activate();
+    }
+
     void Activate(){
+
        SceneManager.LoadScene(hub);
     } 
 }
