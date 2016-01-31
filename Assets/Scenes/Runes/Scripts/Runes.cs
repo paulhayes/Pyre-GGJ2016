@@ -13,7 +13,9 @@ public class Runes : MonoBehaviour {
     List<int> usedRuneIndexes = new List<int>();
 
 	void Start () {
-	    
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
 	}
 	
 	void Update () {
