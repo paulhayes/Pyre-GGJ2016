@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class RitualControl : MonoBehaviour {
 
     public Image completeOverlay;
+    public Text textOverlay;
 
     Dictionary<string,bool> enabledRituals = new Dictionary<string, bool>();
     Dictionary<string, ActivateGame> ritualsRegistered = new Dictionary<string, ActivateGame>();
@@ -65,14 +66,14 @@ public class RitualControl : MonoBehaviour {
     }
 
     IEnumerator OnGameComplete(){
-        yield return StartCoroutine("FadeInOverlay");
-
+        yield return StartCoroutine( FadeInOverlay() );
+        yield return StartCoroutine( FadeInText() );
     }
 
     IEnumerator OnGameOver(){
-        yield return StartCoroutine("FadeInOverlay");
-        Destroy(gameObject);
+        yield return StartCoroutine( FadeInOverlay() );
         RememberPositonAndDirection.Reset();
+        Destroy(gameObject);
         SceneManager.LoadScene("Hub");
     }
 
@@ -86,6 +87,17 @@ public class RitualControl : MonoBehaviour {
             completeOverlay.color = c;
         }
 
+    }
+
+    IEnumerator FadeInText(){
+        float t = 0;
+        while( t<2f ){
+            yield return null;
+            t+=Time.deltaTime;
+            Color c = textOverlay.color;
+            c.a = t;
+            textOverlay.color = c;
+        }
     }
 
 
