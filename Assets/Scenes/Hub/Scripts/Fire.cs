@@ -10,6 +10,10 @@ public class Fire : MonoBehaviour {
 
     public float timeRemaining;
     public float boostTime;
+
+    public AudioSource fireCrackle;
+    public AudioSource fireBoost;
+
     float startTime;
 
     public Light light;
@@ -55,11 +59,14 @@ public class Fire : MonoBehaviour {
             if( timeRemaining < 0 ){
                 timeRemaining = 0;
                 light.enabled = false;
+                fireCrackle.volume = 0;
                 DisableMeshes();
                 countingDown = false;
                 Debug.Log("GameOver");
+                SendMessage("OnGameOver");
             }
             float t = Mathf.InverseLerp(0,startTime,timeRemaining);
+            fireCrackle.volume = t;
             material.SetColor("_EmissionColor",Color.Lerp(minColor,maxColor,t));
             light.color = Color.Lerp(minColor,maxColor,t);
 
@@ -76,6 +83,7 @@ public class Fire : MonoBehaviour {
     }
 
     IEnumerator BeginCountdown(){
+        fireCrackle.Play();
         SendMessage("EnableRituals");
         Debug.Log("Countdown starting");
         if( countingDown )  yield break;
@@ -86,12 +94,16 @@ public class Fire : MonoBehaviour {
         timeRemaining = 1f;
         startTime = max;
         Update();
-
         while(timeRemaining<max){
             timeRemaining += 21f*Time.deltaTime;
+
             yield return null;
          }
 
+    }
+
+    void StopCoundown(){
+        countingDown = false;
     }
 
     void EnableMeshes(){
@@ -111,5 +123,10 @@ public class Fire : MonoBehaviour {
 
     void Boost(){
         timeRemaining+=boostTime;
+    }
+
+    void OnGameComplete(){
+        countingDown = false;
+
     }
 }

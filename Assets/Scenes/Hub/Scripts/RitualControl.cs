@@ -1,14 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class RitualControl : MonoBehaviour {
+
+    public Image completeOverlay;
 
     Dictionary<string,bool> enabledRituals = new Dictionary<string, bool>();
     Dictionary<string, ActivateGame> ritualsRegistered = new Dictionary<string, ActivateGame>();
     List<string> completedRituals = new List<string>();
+
     void Awake(){
         
+    }
+
+    public bool IsGameComplete {
+        get {
+            return completedRituals.Count == ritualsRegistered.Values.Count;
+        }
     }
 
 	void Start () {
@@ -49,9 +60,33 @@ public class RitualControl : MonoBehaviour {
         yield return new WaitForSeconds(1f);
         PlayerFireArtifactHolder artifactHolder = GameObject.FindGameObjectWithTag("Player").transform.GetComponentInChildren<PlayerFireArtifactHolder>();
         artifactHolder.RitualComplete(name);
+
+
     }
 
+    IEnumerator OnGameComplete(){
+        yield return StartCoroutine("FadeInOverlay");
 
+    }
+
+    IEnumerator OnGameOver(){
+        yield return StartCoroutine("FadeInOverlay");
+        Destroy(gameObject);
+        RememberPositonAndDirection.Reset();
+        SceneManager.LoadScene("Hub");
+    }
+
+    IEnumerator FadeInOverlay(){
+        float t = 0;
+        while( t<1f ){
+            yield return null;
+            t+=Time.deltaTime;
+            Color c = completeOverlay.color;
+            c.a = t;
+            completeOverlay.color = c;
+        }
+
+    }
 
 
 }

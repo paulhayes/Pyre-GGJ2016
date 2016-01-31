@@ -44,6 +44,9 @@ public class PlayerFireArtifactHolder : MonoBehaviour {
             }
         }
         fire.SendMessage("Boost");
+        if( fire.GetComponent<RitualControl>().IsGameComplete ){
+            fire.SendMessage("OnGameComplete");
+        }
     }
 }
 
