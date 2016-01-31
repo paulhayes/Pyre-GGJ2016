@@ -94,8 +94,9 @@ public class Fire : MonoBehaviour {
         timeRemaining = 1f;
         startTime = max;
         Update();
+        float fillUpDuration = 1f;
         while(timeRemaining<max){
-            timeRemaining += 21f*Time.deltaTime;
+            timeRemaining += (max/fillUpDuration) * Time.deltaTime;
 
             yield return null;
          }
