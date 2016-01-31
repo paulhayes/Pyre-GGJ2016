@@ -47,6 +47,8 @@ public class Runes : MonoBehaviour {
         }
 
         Transform rune = runeSlot.transform.GetChild(0);
+        runePlaced.Play();
+
         usedRunes.Add( rune );
         usedRuneIndexes.Add( index );
 
@@ -74,7 +76,11 @@ public class Runes : MonoBehaviour {
             else if( usedIndex != -1 ){
                 rightNumber++;
             } 
+            Debug.LogFormat("{0},{1}",usedIndex,i);
         }
+
+        Debug.LogFormat("RRRP={0} RRWP={1}",rightNumberRightPlace,rightNumber);
+
         if( rightNumberRightPlace == runeSlots.Length ){
             Invoke("OnComplete",2f);
         }
@@ -88,11 +94,11 @@ public class Runes : MonoBehaviour {
     }
 
     IEnumerator PlayResult(int rightNumber, int rightNumberRightPlace){
+        for(int j=0;j<rightNumberRightPlace;j++){
+            rightRune.Play();
+            yield return new WaitForSeconds(rightRuneRightPlace.clip.length);
+        }
 		for(int i=0;i<rightNumber;i++){
-			rightRune.Play();
-			yield return new WaitForSeconds(rightRune.clip.length);
-		}
-		for(int j=0;j<rightNumberRightPlace;j++){
 			rightRune.Play();
 			yield return new WaitForSeconds(rightRune.clip.length);
 		}
