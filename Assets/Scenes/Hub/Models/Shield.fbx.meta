@@ -1,0 +1,143 @@
+fileFormatVersion: 2
+guid: e4a220548893a3541a74b409acabf586
+timeCreated: 1454204262
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Shield.000
+    100004: Shield.001
+    100006: Shield.002
+    100008: Shield.004
+    100010: Shield.005
+    100012: Shield.006
+    100014: Shield.007
+    100016: Shield.008
+    100018: Shield.009
+    100020: Shield.010
+    100022: Shield.011
+    100024: Shield.012
+    100026: Shield.013
+    100028: Shield.014
+    400000: //RootNode
+    400002: Shield.000
+    400004: Shield.001
+    400006: Shield.002
+    400008: Shield.004
+    400010: Shield.005
+    400012: Shield.006
+    400014: Shield.007
+    400016: Shield.008
+    400018: Shield.009
+    400020: Shield.010
+    400022: Shield.011
+    400024: Shield.012
+    400026: Shield.013
+    400028: Shield.014
+    2300000: Shield.000
+    2300002: Shield.001
+    2300004: Shield.002
+    2300006: Shield.004
+    2300008: Shield.005
+    2300010: Shield.006
+    2300012: Shield.007
+    2300014: Shield.008
+    2300016: Shield.009
+    2300018: Shield.010
+    2300020: Shield.011
+    2300022: Shield.012
+    2300024: Shield.013
+    2300026: Shield.014
+    3300000: Shield.000
+    3300002: Shield.001
+    3300004: Shield.002
+    3300006: Shield.004
+    3300008: Shield.005
+    3300010: Shield.006
+    3300012: Shield.007
+    3300014: Shield.008
+    3300016: Shield.009
+    3300018: Shield.010
+    3300020: Shield.011
+    3300022: Shield.012
+    3300024: Shield.013
+    3300026: Shield.014
+    4300000: Shield.014
+    4300002: Shield.013
+    4300004: Shield.012
+    4300006: Shield.011
+    4300008: Shield.010
+    4300010: Shield.009
+    4300012: Shield.008
+    4300014: Shield.007
+    4300016: Shield.006
+    4300018: Shield.005
+    4300020: Shield.004
+    4300022: Shield.002
+    4300024: Shield.001
+    4300026: Shield.000
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
