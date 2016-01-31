@@ -10,6 +10,7 @@ public class Constellation : MonoBehaviour {
     public Rigidbody[] marbles;
     public int marbleCount;
     public Transform marbleStartPosition;
+    public float offsetZ;
      
     ReturnToHub returnToHub;
 
@@ -51,7 +52,7 @@ public class Constellation : MonoBehaviour {
         marble.isKinematic = true;
         marble.GetComponent<Collider>().enabled = false;
         marble.transform.parent = holes[index];
-        marble.transform.localPosition = Vector3.zero;
+        marble.transform.localPosition = new Vector3(0,0,offsetZ);
         filledHoles.Add(index);
         CheckList();
     }

@@ -3,13 +3,22 @@ using System.Collections;
 
 public class Runes : MonoBehaviour {
 
-	// Use this for initialization
+    public Collider[] runes;
+    public Collider runeSlots;
+
 	void Start () {
-	
+	    
 	}
 	
-	// Update is called once per frame
 	void Update () {
 	
 	}
+
+    void Check(){
+
+    }
+
+    void PlayResult(){
+        
+    }
 }
