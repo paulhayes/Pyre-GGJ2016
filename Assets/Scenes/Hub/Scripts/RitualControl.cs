@@ -41,11 +41,17 @@ public class RitualControl : MonoBehaviour {
         }
     }
 
+    public bool IsRitualComplete(string sceneName){
+        return completedRituals.IndexOf(sceneName)!=-1;
+    }
+
     public void RegisterRitual(ActivateGame ritual){
 
         ritualsRegistered[ritual.sceneName] = ritual;
-        ritual.enabled = enabledRituals.ContainsKey(ritual.sceneName) && enabledRituals[ritual.sceneName];
-        if( completedRituals.IndexOf(ritual.sceneName)!=-1 ){
+        bool isComplete = (completedRituals.IndexOf(ritual.sceneName)!=-1);
+        Debug.LogFormat("RegisterRitual: {0} is {1}",ritual.sceneName,isComplete?"complete":"not complete");
+        ritual.activatable = !isComplete && (!enabledRituals.ContainsKey(ritual.sceneName) || enabledRituals[ritual.sceneName]);
+        if( isComplete ){
             ritual.SendMessage("RitualComplete",SendMessageOptions.DontRequireReceiver);
         }
         else {
