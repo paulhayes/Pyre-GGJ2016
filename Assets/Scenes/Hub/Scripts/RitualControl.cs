@@ -107,6 +107,10 @@ public class RitualControl : MonoBehaviour {
             textColor.a = 1-t/d;
             completeOverlay.color = c;
             introText.color = textColor;
+            if( Input.GetButtonDown("Fire1") ){
+                break;
+            }
+
         }
         introText.enabled = false;
         completeOverlay.enabled = false;
