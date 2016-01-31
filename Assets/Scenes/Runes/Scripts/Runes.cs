@@ -18,7 +18,7 @@ public class Runes : MonoBehaviour {
 	
 	void Update () {
         RaycastHit hit;
-        if( Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 2f ) ){
+        if(  Input.GetButtonDown("Fire1") && Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 2f ) ){
             
             int source = System.Array.IndexOf( runesSources, hit.collider );
             int dest = System.Array.IndexOf( runeSlots, hit.collider );
@@ -93,7 +93,7 @@ public class Runes : MonoBehaviour {
 
     void Reset(){
         for(int i=0;i<usedRuneIndexes.Count;i++){
-            usedRunes[i].parent = runesSources[i].transform;
+            usedRunes[i].parent = runesSources[usedRuneIndexes[i]].transform;
             usedRunes[i].localPosition = Vector3.zero;
         }
 
