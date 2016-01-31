@@ -33,13 +33,20 @@ public class RitualControl : MonoBehaviour {
 
         ritualsRegistered[ritual.sceneName] = ritual;
         ritual.enabled = enabledRituals.ContainsKey(ritual.sceneName) && enabledRituals[ritual.sceneName];
+        if( completedRituals.IndexOf(ritual.sceneName)!=-1 ){
+            ritual.SendMessage("RitualComplete",SendMessageOptions.DontRequireReceiver);
+        }
+        else {
+            ritual.SendMessage("RitualIncomplete",SendMessageOptions.DontRequireReceiver);
 
+        }
     }
 
    public void RitualComplete(string name){
         enabledRituals[name] = false;
         completedRituals.Add(name);
         SendMessage("Boost");
+
     }
 
 

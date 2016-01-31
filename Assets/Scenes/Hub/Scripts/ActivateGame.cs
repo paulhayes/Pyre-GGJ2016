@@ -6,7 +6,7 @@ public class ActivateGame : MonoBehaviour {
 
     public string sceneName;
 
-    void Start(){
+    void Awake(){
         FindObjectOfType<RitualControl>().RegisterRitual(this);
     }
 
