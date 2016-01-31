@@ -93,7 +93,7 @@ public class Runes : MonoBehaviour {
         // ( , usedRuneIndexes.OrderBy(r=>r) );
     }
 
-    IEnumerator PlayResult(int rightNumber, int rightNumberRightPlace){
+    IEnumerator PlayResult(int rightNumberRightPlace,int rightNumber){
         for(int j=0;j<rightNumberRightPlace;j++){
             rightRuneRightPlace.Play();
             yield return new WaitForSeconds(rightRuneRightPlace.clip.length);
