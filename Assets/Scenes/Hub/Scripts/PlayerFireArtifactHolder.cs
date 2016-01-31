@@ -26,7 +26,10 @@ public class PlayerFireArtifactHolder : MonoBehaviour {
             if( fire.GetComponent<Collider>().Raycast( Camera.main.ScreenPointToRay( Input.mousePosition ), out hit, 1f ) ){
                 currentlyHolding.SetActive(false);
                 currentlyHolding = null;
-                fire.SendMessage("Boost");     
+                fire.SendMessage("Boost");
+                if( fire.GetComponent<RitualControl>().IsGameComplete ){
+                    fire.SendMessage("OnGameComplete");
+                }     
             }
          
         }  
@@ -40,13 +43,14 @@ public class PlayerFireArtifactHolder : MonoBehaviour {
                 currentlyHolding = artifacts[i].artifact;
                 currentlyHolding.SetActive(true);
                 Debug.LogFormat("Found {0}",currentlyHolding.name);
-                if( fire.GetComponent<RitualControl>().IsGameComplete ){
-                    fire.SendMessage("OnGameComplete");
-                }
+
                 return;
             }
         }
         fire.SendMessage("Boost");
+        if( fire.GetComponent<RitualControl>().IsGameComplete ){
+                    fire.SendMessage("OnGameComplete");
+                }
 
     }
 }
