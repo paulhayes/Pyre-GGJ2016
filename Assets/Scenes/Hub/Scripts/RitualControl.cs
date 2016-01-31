@@ -97,12 +97,26 @@ public class RitualControl : MonoBehaviour {
 
     IEnumerator FadeOutIntro(){
         float t = 0;
-        float d = 10f;
+        float d = 3f;
+        Color textColor = introText.color;
+        textColor.a = 0;
+        introText.color = textColor;
+        while( t<d ){
+            yield return null;
+            textColor = introText.color;
+            t+=Time.deltaTime;
+            textColor.a = t/d;
+            introText.color = textColor;
+
+        }
+
+        t = 0;
+        d = 10f;
         while( t<d ){
             yield return null;
             t+=Time.deltaTime;
             Color c = completeOverlay.color;
-            Color textColor = introText.color;
+            textColor = introText.color;
             c.a = 1-t/d;
             textColor.a = 1-t/d;
             completeOverlay.color = c;
