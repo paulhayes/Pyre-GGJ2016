@@ -13,7 +13,7 @@ public class ActivateControl : MonoBehaviour {
 	    if( Input.GetButtonDown("Fire1") ){
             RaycastHit hit;
             if( Physics.Raycast( transform.position, transform.forward, out hit, activationMaxDistance ) ){
-                Debug.Log("A hit, a very papable hit!");
+                Debug.LogFormat("A hit, a very papable hit! GameObject={0}",hit.collider.name);
 
                 hit.transform.SendMessage("Activate",SendMessageOptions.DontRequireReceiver);
             }
