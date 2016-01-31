@@ -88,11 +88,11 @@ public class Runes : MonoBehaviour {
     }
 
     IEnumerator PlayResult(int rightNumber, int rightNumberRightPlace){
-		while(int i=0;i<rightNumber;i++){
+		for(int i=0;i<rightNumber;i++){
 			rightRune.Play();
 			yield return new WaitForSeconds(rightRune.clip.length);
 		}
-		while(int j=0;j<rightNumberRightPlace;j++){
+		for(int j=0;j<rightNumberRightPlace;j++){
 			rightRune.Play();
 			yield return new WaitForSeconds(rightRune.clip.length);
 		}
