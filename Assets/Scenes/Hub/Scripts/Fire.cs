@@ -72,7 +72,7 @@ public class Fire : MonoBehaviour {
             material.SetColor("_EmissionColor",Color.Lerp(minColor,maxColor,t));
             light.color = Color.Lerp(minColor,maxColor,t);
 
-            flames.localScale = Vector3.one * ( light.intensity = Mathf.Lerp(minScale,maxScale,t) );
+            flames.localScale = Vector3.one * ( light.intensity = Mathf.Lerp(minScale,maxScale,Mathf.Pow(t,0.9f)) );
         }
 	}
 
