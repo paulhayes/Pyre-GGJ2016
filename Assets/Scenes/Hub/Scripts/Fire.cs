@@ -122,6 +122,7 @@ public class Fire : MonoBehaviour {
     }
 
     void Boost(){
+        fireBoost.Play();
         timeRemaining+=boostTime;
     }
 
