@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public class Constellation : MonoBehaviour {
 
@@ -23,7 +24,7 @@ public class Constellation : MonoBehaviour {
 	}
 	
 	void Update () {
-	    if( Input.GetButton("Fire1") ){
+	    if( Input.GetButtonDown("Fire1") ){
             RaycastHit hit;
             if( Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 2f)){
                 int index = System.Array.IndexOf(holes,hit.transform);
@@ -42,16 +43,44 @@ public class Constellation : MonoBehaviour {
 	}
 
     void Add(int index){
-        
-        //holes[index]
-        //filledHoles.Add(index);
-
+        CancelInvoke("OnComplete");
+        if(filledHoles.Count==marbles.Length){
+            return;
+        }
+        Rigidbody marble = TopMarble();
+        marble.isKinematic = true;
+        marble.GetComponent<Collider>().enabled = false;
+        marble.transform.parent = holes[index];
+        marble.transform.localPosition = Vector3.zero;
+        filledHoles.Add(index);
+        CheckList();
     }
 
     void Remove(int index){
-        //filledHoles.Remove(index);
+        CancelInvoke("OnComplete");
+        Rigidbody marble = holes[index].GetChild(0).GetComponent<Rigidbody>();
+        marble.transform.parent = marbleStartPosition;
+        marble.transform.localPosition = Vector3.zero;
+        marble.isKinematic = false;
+        marble.GetComponent<Collider>().enabled = true;
+        filledHoles.Remove(index);
 
+        CheckList();
     }
 
+    Rigidbody TopMarble(){
+        return marbles.Where(r=>!r.isKinematic).Aggregate((m1,m2)=>m1.transform.position.y > m2.transform.position.y ? m1 : m2 );
+    }
+
+    void CheckList(){
+        if( Enumerable.SequenceEqual(filledHoles.OrderBy(m=>m), gameData.holdIndexes.OrderBy(m=>m)) ){
+            Invoke("OnComplete",1f);
+        }
+    }
+
+    void OnComplete(){
+        SendMessage("RitualComplete");
+
+    }
 
 }
