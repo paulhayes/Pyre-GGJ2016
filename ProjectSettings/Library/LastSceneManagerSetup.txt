@@ -1,0 +1,4 @@
+sceneSetups:
+- path: C:/Users/Hannah/Documents/GitHub/GGJ2016/Assets/Scenes/Hub.unity
+  isLoaded: 1
+  isActive: 1
