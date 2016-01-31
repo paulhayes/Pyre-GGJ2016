@@ -8,6 +8,8 @@ public class Fire : MonoBehaviour {
     public Color maxColor;
     public Color minColor;
 
+    public Transform flames;
+
     public float timeRemaining;
     public float boostTime;
 
@@ -28,7 +30,7 @@ public class Fire : MonoBehaviour {
     void Awake(){
 
         fireMeshes = GetComponentsInChildren<MeshRenderer>();
-        mAnimator = GetComponent<Animator>();
+        mAnimator = GetComponentInChildren<Animator>();
 
         if( instance != null && instance != this ){
             Destroy(gameObject);
@@ -70,7 +72,7 @@ public class Fire : MonoBehaviour {
             material.SetColor("_EmissionColor",Color.Lerp(minColor,maxColor,t));
             light.color = Color.Lerp(minColor,maxColor,t);
 
-            transform.localScale = Vector3.one * ( light.intensity = Mathf.Lerp(minScale,maxScale,t) );
+            flames.localScale = Vector3.one * ( light.intensity = Mathf.Lerp(minScale,maxScale,t) );
         }
 	}
 
