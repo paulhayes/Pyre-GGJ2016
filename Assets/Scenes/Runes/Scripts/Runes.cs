@@ -81,14 +81,9 @@ public class Runes : MonoBehaviour {
 
         Debug.LogFormat("RRRP={0} RRWP={1}",rightNumberRightPlace,rightNumber);
 
-        if( rightNumberRightPlace == runeSlots.Length ){
-            Invoke("OnComplete",2f);
-        }
-        else {
-            Invoke("Reset",2f);
-        }
 
         StartCoroutine( PlayResult(rightNumberRightPlace,rightNumber) );
+
 
         // ( , usedRuneIndexes.OrderBy(r=>r) );
     }
@@ -102,6 +97,15 @@ public class Runes : MonoBehaviour {
 			rightRune.Play();
 			yield return new WaitForSeconds(rightRune.clip.length);
 		}
+
+        if( rightNumberRightPlace == runeSlots.Length ){
+            
+            Invoke("OnComplete",2f);
+        }
+        else {
+            Invoke("Reset",2f);
+        }
+
        yield break;
     }
 
