@@ -8,7 +8,9 @@ public class Runes : MonoBehaviour {
     public Collider[] runesSources;
     public Collider[] runeSlots;
     public RuneData gameData;
-
+	public AudioSource runePlaced;
+	public AudioSource rightRune;
+	public AudioSource rightRuneRightPlace;
     List<Transform> usedRunes = new List<Transform>();
     List<int> usedRuneIndexes = new List<int>();
 
@@ -86,7 +88,15 @@ public class Runes : MonoBehaviour {
     }
 
     IEnumerator PlayResult(int rightNumber, int rightNumberRightPlace){
-           yield break;
+		while(int i=0;i<rightNumber;i++){
+			rightRune.Play();
+			yield return new WaitForSeconds(rightRune.clip.length);
+		}
+		while(int j=0;j<rightNumberRightPlace;j++){
+			rightRune.Play();
+			yield return new WaitForSeconds(rightRune.clip.length);
+		}
+       yield break;
     }
 
     void OnComplete(){
