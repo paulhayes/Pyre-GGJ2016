@@ -12,7 +12,13 @@ public class ActivateGame : MonoBehaviour {
 
     void Activate(){
         if(!enabled) return;
-        SceneManager.LoadScene(sceneName);
-        RememberPositonAndDirection.Store();
+        PlayerFireArtifactHolder artifactHolder = GameObject.FindObjectOfType<PlayerFireArtifactHolder>();
+        if( artifactHolder.IsHolding ){
+            
+        }
+        else {
+            RememberPositonAndDirection.Store();
+            SceneManager.LoadScene(sceneName);          
+        }
     }
 }

@@ -19,7 +19,7 @@ public class ReturnToHub : MonoBehaviour {
 	}
 
     void RitualComplete(){
-        GameObject.FindObjectOfType<RitualControl>().RitualComplete(SceneManager.GetActiveScene().name);
+        GameObject.FindObjectOfType<RitualControl>().SendMessage("RitualComplete",SceneManager.GetActiveScene().name);
         Activate();
     }
 

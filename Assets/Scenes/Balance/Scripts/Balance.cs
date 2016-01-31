@@ -67,7 +67,7 @@ public class Balance : MonoBehaviour {
             int sourceIndex = System.Array.IndexOf(sources,hit.collider);
             int destinationIndex = System.Array.IndexOf(destinations,hit.collider);
 
-            Debug.LogFormat("{0}, {1}, {2}",sourceIndex,destinationIndex,hit.transform.name);
+            //Debug.LogFormat("{0}, {1}, {2}",sourceIndex,destinationIndex,hit.transform.name);
 
             if( sourceIndex != -1 ){
                 if( sources[sourceIndex].transform.childCount != 0 ){
@@ -106,7 +106,7 @@ public class Balance : MonoBehaviour {
             currentRightWeight = currentWeights.Select(d=>float.Parse( d.transform.GetChild(0).name)).Aggregate((m,t)=>m+t);
         }
         goalBalance =  Mathf.Clamp( currentData.goalWeight - currentRightWeight, -1, 1 ) * maxRotation ;
-        Debug.LogFormat("{0}, {1}-{2}",goalBalance,currentRightWeight,currentData.goalWeight);
+        //Debug.LogFormat("{0}, {1}-{2}",goalBalance,currentRightWeight,currentData.goalWeight);
         if( goalBalance == 0 ){
             Invoke("OnComplete",2.5f);
         }

@@ -42,12 +42,16 @@ public class RitualControl : MonoBehaviour {
         }
     }
 
-   public void RitualComplete(string name){
+   public IEnumerator RitualComplete(string name){
         enabledRituals[name] = false;
         completedRituals.Add(name);
-        SendMessage("Boost");
-
+        Debug.LogFormat("Marking {0} as complete",name);
+        yield return new WaitForSeconds(1f);
+        PlayerFireArtifactHolder artifactHolder = GameObject.FindGameObjectWithTag("Player").transform.GetComponentInChildren<PlayerFireArtifactHolder>();
+        artifactHolder.RitualComplete(name);
     }
+
+
 
 
 }
