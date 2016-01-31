@@ -40,13 +40,14 @@ public class PlayerFireArtifactHolder : MonoBehaviour {
                 currentlyHolding = artifacts[i].artifact;
                 currentlyHolding.SetActive(true);
                 Debug.LogFormat("Found {0}",currentlyHolding.name);
+                if( fire.GetComponent<RitualControl>().IsGameComplete ){
+                    fire.SendMessage("OnGameComplete");
+                }
                 return;
             }
         }
         fire.SendMessage("Boost");
-        if( fire.GetComponent<RitualControl>().IsGameComplete ){
-            fire.SendMessage("OnGameComplete");
-        }
+
     }
 }
 
