@@ -39,7 +39,8 @@ public class RitualControl : MonoBehaviour {
 
         foreach(var ritual in ritualsRegistered.Values)
         {
-            ritual.enabled = true;
+            Debug.LogFormat("Enabling {0}",ritual.sceneName);
+            ritual.activatable = true;
             enabledRituals[ritual.sceneName] = true;
         }
     }
@@ -53,7 +54,7 @@ public class RitualControl : MonoBehaviour {
         ritualsRegistered[ritual.sceneName] = ritual;
         bool isComplete = (completedRituals.IndexOf(ritual.sceneName)!=-1);
         Debug.LogFormat("RegisterRitual: {0} is {1}",ritual.sceneName,isComplete?"complete":"not complete");
-        ritual.activatable = !isComplete && (!enabledRituals.ContainsKey(ritual.sceneName) || enabledRituals[ritual.sceneName]);
+        ritual.activatable = !isComplete && (enabledRituals.ContainsKey(ritual.sceneName) && enabledRituals[ritual.sceneName]);
         if( isComplete ){
             ritual.SendMessage("RitualComplete",SendMessageOptions.DontRequireReceiver);
         }

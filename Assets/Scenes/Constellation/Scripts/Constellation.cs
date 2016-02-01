@@ -18,8 +18,8 @@ public class Constellation : MonoBehaviour {
 
 	void Start () {
         returnToHub = FindObjectOfType<ReturnToHub>();
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
+        //Cursor.visible = true;
+        //Cursor.lockState = CursorLockMode.None;
 
 
 	}
@@ -27,7 +27,7 @@ public class Constellation : MonoBehaviour {
 	void Update () {
 	    if( Input.GetButtonDown("Fire1") ){
             RaycastHit hit;
-            if( Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 2f)){
+            if( Physics.Raycast(Camera.main.ScreenPointToRay(MouseOverload.intelligentMousePosition), out hit, 2f)){
                 int index = System.Array.IndexOf(holes,hit.transform);
                 if( index != -1 ){
                     int filledHoldIndex = filledHoles.IndexOf(index);

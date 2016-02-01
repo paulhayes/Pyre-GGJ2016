@@ -15,14 +15,14 @@ public class Runes : MonoBehaviour {
     List<int> usedRuneIndexes = new List<int>();
 
 	void Start () {
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
+        //Cursor.visible = true;
+        //Cursor.lockState = CursorLockMode.None;
 
 	}
 	
 	void Update () {
         RaycastHit hit;
-        if(  Input.GetButtonDown("Fire1") && Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 2f ) ){
+        if(  Input.GetButtonDown("Fire1") && Physics.Raycast(Camera.main.ScreenPointToRay(MouseOverload.intelligentMousePosition), out hit, 2f ) ){
             
             int source = System.Array.IndexOf( runesSources, hit.collider );
             int dest = System.Array.IndexOf( runeSlots, hit.collider );

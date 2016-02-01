@@ -15,8 +15,8 @@ public class Jigsaw : MonoBehaviour {
 
 
     void Start () {
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
+        //Cursor.visible = true;
+       // Cursor.lockState = CursorLockMode.None;
 
 	}
 	
@@ -24,7 +24,7 @@ public class Jigsaw : MonoBehaviour {
         RaycastHit hit;
 	    if( Input.GetButtonDown("Fire1") ){
             int index;
-            if( Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 2f ) && ((index=System.Array.IndexOf( pieces,hit.collider)) != -1 ) ){
+            if( Physics.Raycast(Camera.main.ScreenPointToRay(MouseOverload.intelligentMousePosition), out hit, 2f ) && ((index=System.Array.IndexOf( pieces,hit.collider)) != -1 ) ){
                 StartDrag( pieces[index], hit );
             }
 
@@ -34,7 +34,7 @@ public class Jigsaw : MonoBehaviour {
         }
 
         if( isDragging ) {
-            if( dragPlane.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 10f) ){
+            if( dragPlane.Raycast(Camera.main.ScreenPointToRay(MouseOverload.intelligentMousePosition), out hit, 10f) ){
                 currentlyDragging.transform.position = (hit.point) + dragPosDiff;
 
             }
@@ -77,7 +77,7 @@ public class Jigsaw : MonoBehaviour {
         bool isAllDone = pieces.Where(p=>p.transform.position==pos).Count() == pieces.Length;
         if( isAllDone ) {
             Debug.Log("Done");
-            Invoke("OnComplete",2f);
+            Invoke("OnComplete",1f);
         }
 
     }

@@ -31,6 +31,7 @@ public class RememberPositonAndDirection : MonoBehaviour {
 	}
 
     public static void Store(){
+        if(instance==null)return;
         rotation1 = instance.targetRotation1.rotation;
         rotation2 = instance.targetRotation2.rotation;
 

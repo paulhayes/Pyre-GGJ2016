@@ -131,6 +131,6 @@ public class Fire : MonoBehaviour {
 
     void OnGameComplete(){
         countingDown = false;
-
+        timeRemaining = startTime;
     }
 }

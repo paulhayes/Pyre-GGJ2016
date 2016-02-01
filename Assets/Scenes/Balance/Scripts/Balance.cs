@@ -28,8 +28,8 @@ public class Balance : MonoBehaviour {
 
 	void Start () {
         returnToHub = FindObjectOfType<ReturnToHub>();
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
+        //Cursor.visible = true;
+        //Cursor.lockState = CursorLockMode.None;
 
         currentData = allData[ PlayerPrefs.GetInt("BalanceProgress",0) % allData.Length ]; 
         for(int i=0;i<currentData.weights.Length;i++){
@@ -63,7 +63,7 @@ public class Balance : MonoBehaviour {
         }
 
         RaycastHit hit;
-        if(Input.GetButtonDown("Fire1")&& Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition),out hit,10f)){
+        if(Input.GetButtonDown("Fire1")&& Physics.Raycast(Camera.main.ScreenPointToRay(MouseOverload.intelligentMousePosition),out hit,10f)){
             int sourceIndex = System.Array.IndexOf(sources,hit.collider);
             int destinationIndex = System.Array.IndexOf(destinations,hit.collider);
 
