@@ -1,3 +1,4 @@
-# GGJ2016
+# Pyre - Global Game Jam 2016 ( Theme : Ritual )
 
-http://globalgamejam.org/2016/games/eternal-flame
+Details here
+http://globalgamejam.org/2016/games/pyre
